@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+  --background: #f5f0ff;
+  --foreground: #24143d;
+}
+
+@theme inline {
+  --color-brand: #9666f5;
+  --color-violet: #5935a8;
+  --color-lavender: #dccbff;
+  --color-mist: #f5f0ff;
+  --color-blush: #ffc9e8;
+  --color-ink: #24143d;
+  --color-muted: #6b6284;
+  --font-sans: var(--font-geist-sans), sans-serif;
+  --font-display: var(--font-nunito), sans-serif;
+}
+
+html {
+  background: var(--background);
+}
+
+body {
+  min-height: 100%;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), sans-serif;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='84' viewBox='0 0 84 84'%3E%3Cpath d='M42 10 L50 20 L42 30 L34 20 Z' fill='%235935A8' fill-opacity='0.045'/%3E%3C/svg%3E");
+}
+
+::selection {
+  background: #dccbff;
+  color: #24143d;
+}
+
+:focus-visible {
+  outline: 3px solid #5935a8;
+  outline-offset: 3px;
+}
+
+@keyframes gem-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.float-slow {
+  animation: gem-float 7s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .float-slow {
+    animation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+  }
+}
